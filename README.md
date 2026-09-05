@@ -1,6 +1,6 @@
 # devflow · 通用软件交付方法论 (Agent Skill Group)
 
-一套**与具体技术栈、业务无关**的端到端软件研发方法论，沉淀为 16 个可被任意 AI Agent（QoderWork / Codex / Claude 等）加载调用的 skill。任何软件项目——Web 应用、内部工具、API 服务、移动端、数据系统——都能按这套流程从"模糊想法"走到"可交付成果"。
+一套**与具体技术栈、业务无关**的端到端软件研发方法论，沉淀为 17 个可被任意 AI Agent（QoderWork / Codex / Claude 等）加载调用的 skill。任何软件项目——Web 应用、内部工具、API 服务、移动端、数据系统——都能按这套流程从"模糊想法"走到"可交付成果"。默认收尾形态不止是"做出一个能跑的系统"，而是交付**一个完整规范的研发项目**：从一个开发需求出发，自动产出立项、需求、计划、研发、测试、试运行、验收、结题到用户手册的整套研发项目文档。
 
 ## 黄金法则：先对话，后执行
 
@@ -16,7 +16,7 @@ cp -R skills/devflow* ~/.qoderworkcn/skills/
 
 拷贝后刷新 skill 列表，`devflow` 即可作为编排入口被触发（说"我要开发一个软件系统""按方法论开发""端到端交付流程"等）。其他 Agent 工具请拷贝到其对应的 skill 目录。
 
-## 全流程管线（14 阶段 / 16 skill）
+## 全流程管线（14 阶段 / 17 skill）
 
 | 阶段 | Skill | 产出物 |
 |---|---|---|
@@ -35,7 +35,8 @@ cp -R skills/devflow* ~/.qoderworkcn/skills/
 | 11 测试 | `devflow-testing` | 分层测试策略 + 冒烟 + 报告 |
 | 12 部署 | `devflow-deployment` | 部署流程 + 运维 |
 | 13 文档 | `devflow-docs` | 交付文档（手册 / 报告 / 交接）排版·占位·校验 |
-| 13+ 报告写作 | `devflow-report-writing` | docs 的深化配套：研发 / 开发 / 测试 / 试运行 / 结题报告 / 用户手册的逐章大纲 + 行文逻辑 |
+| 13+ 报告写作 | `devflow-report-writing` | docs 的深化配套：立项 / 可行性 / 计划书 / 研发·开发 / 测试 / 试运行 / 验收 / 结题报告 / 用户手册的逐章大纲 + 行文逻辑 |
+| ★ 研发项目交付 | `devflow-rd-project` | 研发项目交付模式编排：把整套流程收束为一个完整规范的研发项目，定义全周期文档全集（立项→需求→计划→研发→测试→试运行→验收/结题→交付使用）+ 完整性自检表 |
 
 > 阶段可并行：产品定义 / 架构 / 原型 / 设计 / 技术栈 / 数据库可在 PRD 确定后并行推进；前后端开发在数据模型和约定确定后并行。
 
@@ -60,9 +61,28 @@ devflow-agent-skills/
     ├── devflow/SKILL.md            # 编排入口
     ├── devflow-requirements/SKILL.md
     ├── devflow-prd/SKILL.md
-    ├── ...（共 16 个）
-    └── devflow-docs/SKILL.md
+    ├── ...（共 17 个）
+    ├── devflow-docs/SKILL.md
+    ├── devflow-report-writing/SKILL.md
+    └── devflow-rd-project/SKILL.md  # 研发项目交付模式编排
 ```
+
+## 研发项目交付模式（默认收尾形态）
+
+`devflow-rd-project` 把整套方法论从"做出一个能跑的系统"升级为"交付一个完整规范的研发项目"。当你提出一个开发需求时，除了代码，还按全生命周期编排产出整套研发项目文档：
+
+| 阶段 | 文档 | 落地 skill |
+|---|---|---|
+| 立项 | 立项报告 / 立项申请书、可行性研究报告（可选） | `devflow-report-writing` |
+| 需求 | 需求文档（PRD） | `devflow-prd` |
+| 计划 | 项目计划书 / 任务书 | `devflow-report-writing` |
+| 研发实现 | 研发报告 / 开发报告 | `devflow-architecture` · `devflow-report-writing` |
+| 测试 | 测试报告（指标驱动） | `devflow-testing` · `devflow-report-writing` |
+| 试运行 | 试运行报告 | `devflow-report-writing` |
+| 验收 / 结题 | 验收报告、结题 / 结项报告 | `devflow-report-writing` |
+| 交付使用 | 用户操作手册、部署运维手册（可选） | `devflow-docs` · `devflow-deployment` |
+
+考核指标形成"立项定标 → 测试验证 → 验收对标 → 结题闭环"的完整链条。收尾时用 `devflow-rd-project` 的完整性自检表逐份核对，缺一份都不算交付完成。所有文档统一走 `docx` skill 落地，未知信息用 `XXX` 占位，绝不臆造。
 
 ## 设计说明：方法论 vs 项目事实
 
