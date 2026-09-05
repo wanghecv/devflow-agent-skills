@@ -1,6 +1,6 @@
 # devflow · 通用软件交付方法论 (Agent Skill Group)
 
-一套**与具体技术栈、业务无关**的端到端软件研发方法论，沉淀为 15 个可被任意 AI Agent（QoderWork / Codex / Claude 等）加载调用的 skill。任何软件项目——Web 应用、内部工具、API 服务、移动端、数据系统——都能按这套流程从"模糊想法"走到"可交付成果"。
+一套**与具体技术栈、业务无关**的端到端软件研发方法论，沉淀为 16 个可被任意 AI Agent（QoderWork / Codex / Claude 等）加载调用的 skill。任何软件项目——Web 应用、内部工具、API 服务、移动端、数据系统——都能按这套流程从"模糊想法"走到"可交付成果"。
 
 ## 黄金法则：先对话，后执行
 
@@ -16,7 +16,7 @@ cp -R skills/devflow* ~/.qoderworkcn/skills/
 
 拷贝后刷新 skill 列表，`devflow` 即可作为编排入口被触发（说"我要开发一个软件系统""按方法论开发""端到端交付流程"等）。其他 Agent 工具请拷贝到其对应的 skill 目录。
 
-## 全流程管线（14 阶段 / 15 skill）
+## 全流程管线（14 阶段 / 16 skill）
 
 | 阶段 | Skill | 产出物 |
 |---|---|---|
@@ -34,7 +34,8 @@ cp -R skills/devflow* ~/.qoderworkcn/skills/
 | 10 数据库 | `devflow-database` | 数据建模 + 变更 SOP |
 | 11 测试 | `devflow-testing` | 分层测试策略 + 冒烟 + 报告 |
 | 12 部署 | `devflow-deployment` | 部署流程 + 运维 |
-| 13 文档 | `devflow-docs` | 交付文档（手册 / 报告 / 交接） |
+| 13 文档 | `devflow-docs` | 交付文档（手册 / 报告 / 交接）排版·占位·校验 |
+| 13+ 报告写作 | `devflow-report-writing` | docs 的深化配套：研发 / 开发 / 测试 / 试运行 / 结题报告 / 用户手册的逐章大纲 + 行文逻辑 |
 
 > 阶段可并行：产品定义 / 架构 / 原型 / 设计 / 技术栈 / 数据库可在 PRD 确定后并行推进；前后端开发在数据模型和约定确定后并行。
 
@@ -59,7 +60,7 @@ devflow-agent-skills/
     ├── devflow/SKILL.md            # 编排入口
     ├── devflow-requirements/SKILL.md
     ├── devflow-prd/SKILL.md
-    ├── ...（共 15 个）
+    ├── ...（共 16 个）
     └── devflow-docs/SKILL.md
 ```
 

@@ -36,7 +36,8 @@ version: 1.0.0
 | 10 数据库 | `devflow-database` | 数据模型 + 变更 SOP |
 | 11 测试 | `devflow-testing` | 测试点 + 冒烟 + 指标验证 |
 | 12 部署 | `devflow-deployment` | 部署 + 运维 |
-| 13 文档 | `devflow-docs` | 交付文档 |
+| 13 文档 | `devflow-docs` | 交付文档（排版/占位/校验） |
+| 13+ 报告写作 | `devflow-report-writing` | 各类报告的章节模板 + 行文逻辑（研发/开发/测试/试运行/结题/操作手册），docs 的深化配套 |
 
 > 阶段可合理并行：PRD 确定后，产品定义/架构/原型/设计/技术栈/数据库可并行；技术栈与规范确定后，前后端可并行。
 
